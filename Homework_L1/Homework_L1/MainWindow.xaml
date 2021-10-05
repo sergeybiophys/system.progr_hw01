@@ -23,11 +23,11 @@
             <ColumnDefinition Width="7*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="1"></Button>
-        <Button Grid.Row="2"></Button>
-        <Button Grid.Row="3"></Button>
-        <Button Grid.Row="4"></Button>
-        <Button Grid.Row="5"></Button>
+        <Button x:Name="btnRacer1" Grid.Row="1">Rbbbit01</Button>
+        <Button x:Name="btnRacer2" Grid.Row="2">Rbbbit02</Button>
+        <Button x:Name="btnRacer3" Grid.Row="3">Rbbbit03</Button>
+        <Button x:Name="btnRacer4" Grid.Row="4">Rbbbit04</Button>
+        <Button x:Name="btnRacer5" Grid.Row="5">Rbbbit05</Button>
 
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -35,8 +35,8 @@
                 <ColumnDefinition Width="6*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button></Button>
-            <Button Grid.Column="2"></Button>
+            <Button Click="StartClick">START</Button>
+            <Button Grid.Column="2" Click="StopClick">STOP</Button>
 
         </Grid>
 
