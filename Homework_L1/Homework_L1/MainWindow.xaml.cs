@@ -65,29 +65,8 @@ namespace Homework_L1
             //});
             //t1.Start();
 
-            t1 = new Thread(new ThreadStart(() =>
-            {
-                //btnRacer1.Content = transform1.X.ToString();
-    
+            t1 = new Thread(UpdateCoordX);
 
-                    while (btnRacer1 <= 200)
-                    {
-                    //while (transform1.X <= 300)
-                    // {
-                    this.Dispatcher.Invoke(() =>
-                    {
-                        transform1.X += rnd.Next(5, 45);
-
-                        //btnRacer1.RenderTransform = transform1;
-                        btnRacer1.Content = transform1.X.ToString();
-
-                        Thread.Sleep(500);
-                    });
-                }
-                    //}
-        
-
-            }));
             t1.Start();
 
 
@@ -106,7 +85,7 @@ namespace Homework_L1
             //btnRacer1.RenderTransform = transform;
             btnRacer1.Content = transform.X.ToString();
 
-
+            Thread.Sleep(200);
 
 
         }
@@ -114,12 +93,15 @@ namespace Homework_L1
         void UpdateCoordX()
         {
             //TranslateTransform transform = new TranslateTransform();
-            this.Dispatcher.BeginInvoke(DispatcherPriority.Render, (ThreadStart)delegate ()
+            this.Dispatcher.BeginInvoke( new Action(()=>
             {
+                while(transform1.X<=300)
+                {
+                    Move(transform1);
+                    Console.WriteLine(transform1.X);
+                }
 
-                Move(transform1);
-
-            });
+            }));
         }
     }
 }
