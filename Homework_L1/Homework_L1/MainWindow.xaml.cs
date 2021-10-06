@@ -42,57 +42,16 @@ namespace Homework_L1
         {
             InitializeComponent();
             DataContext = this;
+            t1 = new Thread(UpdateCoordX);
+            t1.IsBackground = true;
+            t1.Name = "Racer1";
         }
 
         void StartClick(object sender, RoutedEventArgs e)
         {
-            //t1 = new Thread(()=> {
 
-            //    this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, (ThreadStart)delegate ()
-            //    {
-
-
-            //        while (transform1.X <= 300)
-            //        {
-            //            transform1.X += rnd.Next(5, 45);
-            //            Thread.Sleep(500);
-            //            btnRacer1.RenderTransform = transform1;
-
-            //        }
-            //    });
-
-
-            //});
-            //t1.Start();
-
-            t1 = new Thread(new ThreadStart(() =>
-            {
-                //btnRacer1.Content = transform1.X.ToString();
-    
-
-                    while (btnRacer1 <= 200)
-                    {
-                    //while (transform1.X <= 300)
-                    // {
-                    this.Dispatcher.Invoke(() =>
-                    {
-                        transform1.X += rnd.Next(5, 45);
-
-                        //btnRacer1.RenderTransform = transform1;
-                        btnRacer1.Content = transform1.X.ToString();
-
-                        Thread.Sleep(500);
-                    });
-                }
-                    //}
-        
-
-            }));
             t1.Start();
 
-
-            //transform1.X += rnd.Next(5, 45);
-            //btnRacer1.RenderTransform = transform1;
         }
         void StopClick(object sender, RoutedEventArgs e)
         {
@@ -114,12 +73,32 @@ namespace Homework_L1
         void UpdateCoordX()
         {
             //TranslateTransform transform = new TranslateTransform();
-            this.Dispatcher.BeginInvoke(DispatcherPriority.Render, (ThreadStart)delegate ()
-            {
 
-                Move(transform1);
 
-            });
+            
+
+                    this.Dispatcher.Invoke(new Action(() =>
+                    {
+                         while (transform1.X <= 200)
+                         {
+        
+                                transform1.X += rnd.Next(5, 45);
+                            //transform1.X += deltaX;
+
+                            //btnRacer1.RenderTransform = transform1;
+                            btnRacer1.RenderTransform = new TranslateTransform(transform1.X, 0);
+                                this.Title = transform1.X.ToString();
+                                btnRacer1.Content = transform1.X.ToString();
+                            
+                                Thread.Sleep(500);
+      
+                         }
+                         ;
+                    }));
+
+            string name = Thread.CurrentThread.Name;
+            ;
+        
         }
     }
 }
