@@ -28,6 +28,8 @@
         <Button x:Name="btnRacer3" Grid.Row="3">Rbbbit03</Button>
         <Button x:Name="btnRacer4" Grid.Row="4">Rbbbit04</Button>
         <Button x:Name="btnRacer5" Grid.Row="5">Rbbbit05</Button>
+        <TextBlock x:Name="txtBlock" Grid.Row="7"></TextBlock>
+        <ProgressBar x:Name="progress" Grid.Row="6" Grid.Column="1"></ProgressBar>
 
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>

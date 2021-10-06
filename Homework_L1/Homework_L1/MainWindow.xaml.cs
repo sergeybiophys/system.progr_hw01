@@ -45,6 +45,7 @@ namespace Homework_L1
             t1 = new Thread(UpdateCoordX);
             t1.IsBackground = true;
             t1.Name = "Racer1";
+            progress.Maximum = 250;
         }
 
         void StartClick(object sender, RoutedEventArgs e)
@@ -79,8 +80,7 @@ namespace Homework_L1
 
                     this.Dispatcher.Invoke(new Action(() =>
                     {
-                        Button button = new Button();
-                        button = btnRacer1;
+           
                         while (transform1.X <= 200)
                          {
         
@@ -88,11 +88,12 @@ namespace Homework_L1
                             //transform1.X += deltaX;
 
                             //btnRacer1.RenderTransform = transform1;
-                            button.RenderTransform = new TranslateTransform(transform1.X, 0);
+                            btnRacer1.RenderTransform = new TranslateTransform(transform1.X, 0);
                                 this.Title = transform1.X.ToString();
-                            button.Content = transform1.X.ToString();
-                               
-                                Thread.Sleep(500);
+                            btnRacer1.Content = transform1.X.ToString();
+                            txtBlock.Text = transform1.X.ToString();
+                            progress.Value = transform1.X;
+                            Thread.Sleep(500);
       
                          }
                          
