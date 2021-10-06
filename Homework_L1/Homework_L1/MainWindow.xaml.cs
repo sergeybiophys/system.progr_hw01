@@ -74,30 +74,32 @@ namespace Homework_L1
         {
             //TranslateTransform transform = new TranslateTransform();
 
-
+           
             
 
                     this.Dispatcher.Invoke(new Action(() =>
                     {
-                         while (transform1.X <= 200)
+                        Button button = new Button();
+                        button = btnRacer1;
+                        while (transform1.X <= 200)
                          {
         
                                 transform1.X += rnd.Next(5, 45);
                             //transform1.X += deltaX;
 
                             //btnRacer1.RenderTransform = transform1;
-                            btnRacer1.RenderTransform = new TranslateTransform(transform1.X, 0);
+                            button.RenderTransform = new TranslateTransform(transform1.X, 0);
                                 this.Title = transform1.X.ToString();
-                                btnRacer1.Content = transform1.X.ToString();
-                            
+                            button.Content = transform1.X.ToString();
+                               
                                 Thread.Sleep(500);
       
                          }
-                         ;
+                         
                     }));
 
-            string name = Thread.CurrentThread.Name;
-            ;
+                    string name = Thread.CurrentThread.Name;
+            
         
         }
     }
