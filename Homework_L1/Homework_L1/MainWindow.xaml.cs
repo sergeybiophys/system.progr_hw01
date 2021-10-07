@@ -122,6 +122,10 @@ namespace Homework_L1
                 //t2.Abort();
                 tb.Text = Places.ToString();
                 Places++;
+
+                Thread.CurrentThread.Abort();
+      
+                //Thread.CurrentThread.Join();
             }
             //btn.Content = transl.X.ToString();
             //this.Title = transform1.X.ToString();
@@ -149,14 +153,23 @@ namespace Homework_L1
 
             //this.Dispatcher.Invoke(delegateTestTest);
             t2 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
-            t2.Start();
+         
             t3 = new Thread(() => MoveByX(btnRacer3, btn3Pos, transform3));
-            t3.Start();
             t4 = new Thread(() => MoveByX(btnRacer2, btn2Pos, transform2));
-            t4.Start();
             t5 = new Thread(() => MoveByX(btnRacer4, btn4Pos, transform4));
-            t5.Start();
             t6 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
+            if(t2.IsAlive)
+            {
+                t2.Resume();
+                t3.Resume();
+                t4.Resume();
+                t5.Resume();
+                t6.Resume();
+            }
+            t2.Start();
+            t3.Start();
+            t4.Start();
+            t5.Start();
             t6.Start();
             //t1 = new Thread(Work);
             //t1.Start();
@@ -176,6 +189,11 @@ namespace Homework_L1
         void StopClick(object sender, RoutedEventArgs e)
         {
             //t1.Abort();
+            t2.Interrupt();
+            t3.Interrupt();
+            t4.Interrupt();
+            t5.Interrupt();
+            t6.Interrupt();
         }
 
         //void Move(TranslateTransform transform)
