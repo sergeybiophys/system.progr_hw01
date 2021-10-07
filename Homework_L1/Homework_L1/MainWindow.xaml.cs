@@ -153,12 +153,20 @@ namespace Homework_L1
 
             //this.Dispatcher.Invoke(delegateTestTest);
             t2 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
-         
+            t2.IsBackground = true;
             t3 = new Thread(() => MoveByX(btnRacer3, btn3Pos, transform3));
+            t3.IsBackground = true;
+
             t4 = new Thread(() => MoveByX(btnRacer2, btn2Pos, transform2));
+            t4.IsBackground = true;
+
             t5 = new Thread(() => MoveByX(btnRacer4, btn4Pos, transform4));
+            t5.IsBackground = true;
+
             t6 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
-            if(t2.IsAlive)
+            t6.IsBackground = true;
+
+            if (t2.IsAlive)
             {
                 t2.Resume();
                 t3.Resume();
@@ -189,11 +197,13 @@ namespace Homework_L1
         void StopClick(object sender, RoutedEventArgs e)
         {
             //t1.Abort();
-            t2.Interrupt();
-            t3.Interrupt();
-            t4.Interrupt();
-            t5.Interrupt();
-            t6.Interrupt();
+            t2.Suspend();
+            t3.Suspend();
+            t4.Suspend();
+            t5.Suspend();
+            t6.Suspend();
+
+
         }
 
         //void Move(TranslateTransform transform)
