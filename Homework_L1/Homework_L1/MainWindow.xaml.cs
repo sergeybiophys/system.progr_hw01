@@ -48,7 +48,7 @@ namespace Homework_L1
 
         public delegate void TestThis();
         public TestThis delegateTestTest;
-
+        public static int Places = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -81,10 +81,11 @@ namespace Homework_L1
         private void MoveByX()
         {
             int distance = 0;
-            while(distance <= 460)
+            while(distance <= 600)
             {
-                distance += rnd.Next(10, 30);
-                Thread.Sleep(200);
+                //distance += rnd.Next(10, 30);
+                distance += 10;
+                Thread.Sleep(rnd.Next(100,200));
                 UpdatePositionButton(distance);
             }
         }
@@ -108,8 +109,15 @@ namespace Homework_L1
 
         private void SetDistance(int dist)
         {
-            transform1.X += rnd.Next(5, 10);
+            //transform1.X += rnd.Next(5, 10);
+            if(dist==600)
+            {
+                btn1Pos.Text = Places.ToString();
+                Places++;
+            }
+            transform1.X = dist;
             btnRacer1.RenderTransform = transform1;
+            btnRacer1.Content = transform1.X.ToString();
             this.Title = transform1.X.ToString();
         }
         //private void Racer_LoadingProgress()
