@@ -32,7 +32,8 @@
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center" x:Name="btn1Pos" Grid.Row="1" Grid.Column="2"></TextBlock>
         <TextBlock x:Name="btn2Pos" Grid.Row="2" Grid.Column="2"></TextBlock>
-        <TextBlock x:Name="btn3Pos" Grid.Row="3" Grid.Column="2"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  x:Name="btn3Pos" Grid.Row="3" Grid.Column="2"></TextBlock>
         <TextBlock x:Name="btn4Pos" Grid.Row="4" Grid.Column="2"></TextBlock>
         <TextBlock x:Name="btn5Pos" Grid.Row="5" Grid.Column="2"></TextBlock>
         <Grid Grid.Row="7" Grid.Column="1">

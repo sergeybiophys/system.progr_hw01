@@ -34,8 +34,8 @@ namespace Homework_L1
 
 
         TranslateTransform transform1 = new TranslateTransform();
-        //TranslateTransform transform2;
-        //TranslateTransform transform3;
+        TranslateTransform transform2 = new TranslateTransform();
+        TranslateTransform transform3 = new TranslateTransform();
         //TranslateTransform transform4;
         //TranslateTransform transform5;
         Random rnd = new Random();
@@ -45,6 +45,7 @@ namespace Homework_L1
 
         Thread t1 = null;
         Thread t2;
+        Thread t3;
 
         public delegate void TestThis();
         public TestThis delegateTestTest;
@@ -78,7 +79,7 @@ namespace Homework_L1
             }
         }
 
-        private void MoveByX()
+        private void MoveByX(Button btn, TextBlock tb, TranslateTransform transl)
         {
             int distance = 0;
             while(distance <= 600)
@@ -86,7 +87,7 @@ namespace Homework_L1
                 //distance += rnd.Next(10, 30);
                 distance += 10;
                 Thread.Sleep(rnd.Next(100,200));
-                UpdatePositionButton(distance);
+                UpdatePositionButton(btn, tb, transl, distance);
             }
         }
 
@@ -96,10 +97,10 @@ namespace Homework_L1
             progress.Dispatcher.BeginInvoke(action);
         }
 
-        private void UpdatePositionButton(int distance)
+        private void UpdatePositionButton(Button btn, TextBlock tb, TranslateTransform transl, int distance)
         {
-            Action action = () => { SetDistance(distance); };
-            btnRacer1.Dispatcher.BeginInvoke(action);
+            Action action = () => { SetDistance(btn, tb, transl, distance); };
+            btn.Dispatcher.BeginInvoke(action);
         }
 
         private void SetProgress(int i)
@@ -107,18 +108,20 @@ namespace Homework_L1
             progress.Value = i;
         }
 
-        private void SetDistance(int dist)
+        private void SetDistance(Button btn, TextBlock tb, TranslateTransform transl, int dist)
         {
             //transform1.X += rnd.Next(5, 10);
-            if(dist==600)
+
+            transl.X = dist;
+            btn.RenderTransform = transl;
+            if (dist == 600)
             {
-                btn1Pos.Text = Places.ToString();
+                //t2.Abort();
+                tb.Text = Places.ToString();
                 Places++;
             }
-            transform1.X = dist;
-            btnRacer1.RenderTransform = transform1;
-            btnRacer1.Content = transform1.X.ToString();
-            this.Title = transform1.X.ToString();
+            btn.Content = transl.X.ToString();
+            //this.Title = transform1.X.ToString();
         }
         //private void Racer_LoadingProgress()
         //{
@@ -142,11 +145,13 @@ namespace Homework_L1
             //this.Title = progress.Value.ToString();
 
             //this.Dispatcher.Invoke(delegateTestTest);
-            t2 = new Thread(MoveByX);
+            t2 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
             t2.Start();
+            t3 = new Thread(() => MoveByX(btnRacer3, btn3Pos, transform3));
+            t3.Start();
             //t1 = new Thread(Work);
             //t1.Start();
-         
+
         }
 
         public void TestTest()
