@@ -36,8 +36,8 @@ namespace Homework_L1
         TranslateTransform transform1 = new TranslateTransform();
         TranslateTransform transform2 = new TranslateTransform();
         TranslateTransform transform3 = new TranslateTransform();
-        //TranslateTransform transform4;
-        //TranslateTransform transform5;
+        TranslateTransform transform4 = new TranslateTransform();
+        TranslateTransform transform5 = new TranslateTransform();
         Random rnd = new Random();
 
 
@@ -46,6 +46,9 @@ namespace Homework_L1
         Thread t1 = null;
         Thread t2;
         Thread t3;
+        Thread t4;
+        Thread t5;
+        Thread t6;
 
         public delegate void TestThis();
         public TestThis delegateTestTest;
@@ -86,7 +89,7 @@ namespace Homework_L1
             {
                 //distance += rnd.Next(10, 30);
                 distance += 10;
-                Thread.Sleep(rnd.Next(100,200));
+                Thread.Sleep(rnd.Next(100,450));
                 UpdatePositionButton(btn, tb, transl, distance);
             }
         }
@@ -120,7 +123,7 @@ namespace Homework_L1
                 tb.Text = Places.ToString();
                 Places++;
             }
-            btn.Content = transl.X.ToString();
+            //btn.Content = transl.X.ToString();
             //this.Title = transform1.X.ToString();
         }
         //private void Racer_LoadingProgress()
@@ -149,6 +152,12 @@ namespace Homework_L1
             t2.Start();
             t3 = new Thread(() => MoveByX(btnRacer3, btn3Pos, transform3));
             t3.Start();
+            t4 = new Thread(() => MoveByX(btnRacer2, btn2Pos, transform2));
+            t4.Start();
+            t5 = new Thread(() => MoveByX(btnRacer4, btn4Pos, transform4));
+            t5.Start();
+            t6 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
+            t6.Start();
             //t1 = new Thread(Work);
             //t1.Start();
 
