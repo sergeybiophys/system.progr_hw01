@@ -123,7 +123,7 @@ namespace Homework_L1
                 tb.Text = Places.ToString();
                 Places++;
 
-                Thread.CurrentThread.Abort();
+                //Thread.CurrentThread.Abort();
       
                 //Thread.CurrentThread.Join();
             }
