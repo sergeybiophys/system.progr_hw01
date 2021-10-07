@@ -33,7 +33,7 @@ namespace Homework_L1
         //Thread t5;
 
 
-        //TranslateTransform transform1 = new TranslateTransform();
+        TranslateTransform transform1 = new TranslateTransform();
         //TranslateTransform transform2;
         //TranslateTransform transform3;
         //TranslateTransform transform4;
@@ -44,6 +44,7 @@ namespace Homework_L1
         RacerModel racer1;
 
         Thread t1 = null;
+        Thread t2;
 
         public delegate void TestThis();
         public TestThis delegateTestTest;
@@ -62,10 +63,29 @@ namespace Homework_L1
 
         private void Work()
         {
-            for(int i = 0; i<=100; i++)
+            //for(int i = 0; i<=100; i++)
+            //{
+            //    Thread.Sleep(200);
+            //    UpdateProgressBaar(i);
+            //}
+            int count = 0;
+
+            while(count<=300)
             {
+                count += rnd.Next(5, 25);
                 Thread.Sleep(200);
-                UpdateProgressBaar(i);
+                UpdateProgressBaar(count);
+            }
+        }
+
+        private void MoveByX()
+        {
+            int distance = 0;
+            while(distance <= 460)
+            {
+                distance += rnd.Next(10, 30);
+                Thread.Sleep(200);
+                UpdatePositionButton(distance);
             }
         }
 
@@ -75,9 +95,22 @@ namespace Homework_L1
             progress.Dispatcher.BeginInvoke(action);
         }
 
+        private void UpdatePositionButton(int distance)
+        {
+            Action action = () => { SetDistance(distance); };
+            btnRacer1.Dispatcher.BeginInvoke(action);
+        }
+
         private void SetProgress(int i)
         {
             progress.Value = i;
+        }
+
+        private void SetDistance(int dist)
+        {
+            transform1.X += rnd.Next(5, 10);
+            btnRacer1.RenderTransform = transform1;
+            this.Title = transform1.X.ToString();
         }
         //private void Racer_LoadingProgress()
         //{
@@ -101,8 +134,11 @@ namespace Homework_L1
             //this.Title = progress.Value.ToString();
 
             //this.Dispatcher.Invoke(delegateTestTest);
-            t1 = new Thread(Work);
-            t1.Start();
+            t2 = new Thread(MoveByX);
+            t2.Start();
+            //t1 = new Thread(Work);
+            //t1.Start();
+         
         }
 
         public void TestTest()
