@@ -32,22 +32,45 @@
                    VerticalAlignment="Center"
                    FontSize="15"
                    Foreground="Red">FINISH</TextBlock>
+
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="White" ></Border>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
         <Button x:Name="btnRacer1" Grid.Row="1">Rabbit01</Button>
         <Button x:Name="btnRacer2" Grid.Row="2">Rabbit02</Button>
         <Button x:Name="btnRacer3" Grid.Row="3">Rabbit03</Button>
         <Button x:Name="btnRacer4" Grid.Row="4">Rabbit04</Button>
         <Button x:Name="btnRacer5" Grid.Row="5">Rabbit05</Button>
-        <ProgressBar x:Name="progress" Grid.Row="6" Grid.Column="1"></ProgressBar>
+
         <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center" x:Name="btn1Pos" Grid.Row="1" Grid.Column="2"></TextBlock>
+                   VerticalAlignment="Center" x:Name="btn1Pos"
+                   Grid.Row="1" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
         <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center" x:Name="btn2Pos" Grid.Row="2" Grid.Column="2"></TextBlock>
+                   VerticalAlignment="Center" x:Name="btn2Pos"
+                   Grid.Row="2" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
         <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"  x:Name="btn3Pos" Grid.Row="3" Grid.Column="2"></TextBlock>
+                   VerticalAlignment="Center"  x:Name="btn3Pos"
+                   Grid.Row="3" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
         <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center" x:Name="btn4Pos" Grid.Row="4" Grid.Column="2"></TextBlock>
+                   VerticalAlignment="Center" x:Name="btn4Pos" 
+                   Grid.Row="4" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
         <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center" x:Name="btn5Pos" Grid.Row="5" Grid.Column="2"></TextBlock>
+                   VerticalAlignment="Center" x:Name="btn5Pos"
+                   Grid.Row="5" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
+        
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -62,5 +85,21 @@
 
         <Line Grid.Column="1" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Green" ></Line>
         <Line Grid.Column="2" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Red" ></Line>
+        <Line Grid.Row="2" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="3" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="4" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="5" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
     </Grid>
 </Window>

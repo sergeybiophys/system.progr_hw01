@@ -43,12 +43,12 @@ namespace Homework_L1
 
         RacerModel racer1;
 
-        Thread t1 = null;
+    
+        Thread t1;
         Thread t2;
         Thread t3;
         Thread t4;
         Thread t5;
-        Thread t6;
 
         public delegate void TestThis();
         public TestThis delegateTestTest;
@@ -57,30 +57,30 @@ namespace Homework_L1
         {
             InitializeComponent();
             DataContext = this;
-            racer1  = new RacerModel(btnRacer1, progress);
+            //racer1  = new RacerModel(btnRacer1, progress);
             //racer.LoadingProgress += Racer_LoadingProgress;
-            progress.Maximum = 300;
+            //progress.Maximum = 300;
             //progress.Value = 50;
            // delegateTestTest = new TestThis(TestTest);
       
         }
 
-        private void Work()
-        {
-            //for(int i = 0; i<=100; i++)
-            //{
-            //    Thread.Sleep(200);
-            //    UpdateProgressBaar(i);
-            //}
-            int count = 0;
+        //private void Work()
+        //{
+        //    //for(int i = 0; i<=100; i++)
+        //    //{
+        //    //    Thread.Sleep(200);
+        //    //    UpdateProgressBaar(i);
+        //    //}
+        //    int count = 0;
 
-            while(count<=300)
-            {
-                count += rnd.Next(5, 25);
-                Thread.Sleep(200);
-                UpdateProgressBaar(count);
-            }
-        }
+        //    while(count<=300)
+        //    {
+        //        count += rnd.Next(5, 25);
+        //        Thread.Sleep(200);
+        //        UpdateProgressBaar(count);
+        //    }
+        //}
 
         private void MoveByX(Button btn, TextBlock tb, TranslateTransform transl)
         {
@@ -102,11 +102,11 @@ namespace Homework_L1
             }
         }
 
-        private void UpdateProgressBaar(int i)
-        {
-            Action action = () => { SetProgress(i); };
-            progress.Dispatcher.BeginInvoke(action);
-        }
+        //private void UpdateProgressBaar(int i)
+        //{
+        //    Action action = () => { SetProgress(i); };
+        //    progress.Dispatcher.BeginInvoke(action);
+        //}
 
         private void UpdatePositionButton(Button btn, TextBlock tb, TranslateTransform transl, int distance)
         {
@@ -114,10 +114,10 @@ namespace Homework_L1
             btn.Dispatcher.BeginInvoke(action);
         }
 
-        private void SetProgress(int i)
-        {
-            progress.Value = i;
-        }
+        //private void SetProgress(int i)
+        //{
+        //    progress.Value = i;
+        //}
 
         private void SetDistance(Button btn, TextBlock tb, TranslateTransform transl, int dist)
         {
@@ -168,64 +168,47 @@ namespace Homework_L1
             //this.Title = progress.Value.ToString();
 
             //this.Dispatcher.Invoke(delegateTestTest);
-            t2 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
+            t1 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
+            t1.IsBackground = true;
+
+            t2 = new Thread(() => MoveByX(btnRacer2, btn2Pos, transform2));
             t2.IsBackground = true;
+
             t3 = new Thread(() => MoveByX(btnRacer3, btn3Pos, transform3));
             t3.IsBackground = true;
 
-            t4 = new Thread(() => MoveByX(btnRacer2, btn2Pos, transform2));
+            t4 = new Thread(() => MoveByX(btnRacer4, btn4Pos, transform4));
             t4.IsBackground = true;
 
-            t5 = new Thread(() => MoveByX(btnRacer4, btn4Pos, transform4));
+            t5 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
             t5.IsBackground = true;
 
-            t6 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
-            t6.IsBackground = true;
-
-            //if (t2.IsAlive)
-            //{
-            //    //t2.Sl();
-            //    //t3.Resume();
-            //    //t4.Resume();
-            //    //t5.Resume();
-            //    //t6.Resume();
-            //}
+            t1.Start();
             t2.Start();
             t3.Start();
             t4.Start();
             t5.Start();
-            t6.Start();
-            //t1 = new Thread(Work);
-            //t1.Start();
 
         }
 
-        public void TestTest()
-        {
-            while(progress.Value<=300)
-            {
-                progress.Value += rnd.Next(5, 25);
+        //public void TestTest()
+        //{
+        //    while(progress.Value<=300)
+        //    {
+        //        progress.Value += rnd.Next(5, 25);
          
-                this.Title = progress.Value.ToString();
-                Thread.Sleep(500);
-            }
-        }
+        //        this.Title = progress.Value.ToString();
+        //        Thread.Sleep(500);
+        //    }
+        //}
         void StopClick(object sender, RoutedEventArgs e)
         {
-            //t1.Abort();
-            //try 
-            //{ 
-            //}
-            //finally
-            //{
+
+            t1.Interrupt();
             t2.Interrupt();
             t3.Interrupt();
             t4.Interrupt();
             t5.Interrupt();
-            t6.Interrupt();
-            //}
-
-
 
         }
 
