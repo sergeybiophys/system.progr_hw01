@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework_L1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="480" Width="810">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -20,9 +20,18 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
+            
             <ColumnDefinition Width="7*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <TextBlock x:Name="tbStart" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   Foreground="Green">START</TextBlock>
+        <TextBlock x:Name="tbFinish" Grid.Column="2" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   Foreground="Red">FINISH</TextBlock>
         <Button x:Name="btnRacer1" Grid.Row="1">Rabbit01</Button>
         <Button x:Name="btnRacer2" Grid.Row="2">Rabbit02</Button>
         <Button x:Name="btnRacer3" Grid.Row="3">Rabbit03</Button>
@@ -45,11 +54,13 @@
                 <ColumnDefinition Width="6*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Click="StartClick">START</Button>
-            <Button Grid.Column="2" Click="StopClick">STOP</Button>
+            <Button Click="StartClick">START/RESTART</Button>
+            <Button Grid.Column="2" Click="StopClick">PAUSE(2sec)</Button>
+            
 
         </Grid>
 
-
+        <Line Grid.Column="1" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Green" ></Line>
+        <Line Grid.Column="2" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Red" ></Line>
     </Grid>
 </Window>

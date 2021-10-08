@@ -85,11 +85,19 @@ namespace Homework_L1
         private void MoveByX(Button btn, TextBlock tb, TranslateTransform transl)
         {
             int distance = 0;
-            while(distance <= 600)
+            while(distance <= 610)
             {
                 //distance += rnd.Next(10, 30);
                 distance += 10;
-                Thread.Sleep(rnd.Next(100,450));
+                try
+                {
+                    Thread.Sleep(rnd.Next(100, 450));
+
+                }
+                catch
+                {
+                    Thread.Sleep(2000);
+                }
                 UpdatePositionButton(btn, tb, transl, distance);
             }
         }
@@ -117,10 +125,10 @@ namespace Homework_L1
 
             transl.X = dist;
             btn.RenderTransform = transl;
-            if (dist == 600)
+            if (dist == 610)
             {
                 //t2.Abort();
-                tb.Text = Places.ToString();
+                tb.Text = Places.ToString() + " Place";
                 Places++;
 
                 //Thread.CurrentThread.Abort();
@@ -140,6 +148,14 @@ namespace Homework_L1
 
         void StartClick(object sender, RoutedEventArgs e)
         {
+
+            Places = 1;
+            btn1Pos.Text = "";
+            btn2Pos.Text = "";
+            btn3Pos.Text = "";
+            btn4Pos.Text = "";
+            btn5Pos.Text = "";
+
             //racer.DeltaX = rnd.Next(5, 15);
             //Racer_LoadingProgress();
             //this.Dispatcher.BeginInvoke(() =>
@@ -166,14 +182,14 @@ namespace Homework_L1
             t6 = new Thread(() => MoveByX(btnRacer5, btn5Pos, transform5));
             t6.IsBackground = true;
 
-            if (t2.IsAlive)
-            {
-                t2.Resume();
-                t3.Resume();
-                t4.Resume();
-                t5.Resume();
-                t6.Resume();
-            }
+            //if (t2.IsAlive)
+            //{
+            //    //t2.Sl();
+            //    //t3.Resume();
+            //    //t4.Resume();
+            //    //t5.Resume();
+            //    //t6.Resume();
+            //}
             t2.Start();
             t3.Start();
             t4.Start();
@@ -197,11 +213,18 @@ namespace Homework_L1
         void StopClick(object sender, RoutedEventArgs e)
         {
             //t1.Abort();
-            t2.Suspend();
-            t3.Suspend();
-            t4.Suspend();
-            t5.Suspend();
-            t6.Suspend();
+            //try 
+            //{ 
+            //}
+            //finally
+            //{
+            t2.Interrupt();
+            t3.Interrupt();
+            t4.Interrupt();
+            t5.Interrupt();
+            t6.Interrupt();
+            //}
+
 
 
         }
