@@ -4,6 +4,24 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resource1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Resource1.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\helmet_skull_racer.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\helmet_skull_racer.ico" />
+  </ItemGroup>
 
 </Project>

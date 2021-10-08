@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework_L1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="RacerGame" Height="480" Width="810" Icon="Resources/helmet_skull_racer.ico"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -17,31 +17,91 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
+
             <ColumnDefinition Width="7*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnRacer1" Grid.Row="1">Rbbbit01</Button>
-        <Button x:Name="btnRacer2" Grid.Row="2">Rbbbit02</Button>
-        <Button x:Name="btnRacer3" Grid.Row="3">Rbbbit03</Button>
-        <Button x:Name="btnRacer4" Grid.Row="4">Rbbbit04</Button>
-        <Button x:Name="btnRacer5" Grid.Row="5">Rbbbit05</Button>
-        <TextBlock x:Name="txtBlock" Grid.Row="7"></TextBlock>
-        <ProgressBar x:Name="progress" Grid.Row="6" Grid.Column="1"></ProgressBar>
+        <TextBlock x:Name="tbStart" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   Foreground="Green">START</TextBlock>
+        <TextBlock x:Name="tbFinish" Grid.Column="2" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   Foreground="Red">FINISH</TextBlock>
+
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="White" ></Border>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Background="Gray"></TextBlock>
+        <Button x:Name="btnRacer1" Grid.Row="1">Rabbit01</Button>
+        <Button x:Name="btnRacer2" Grid.Row="2">Rabbit02</Button>
+        <Button x:Name="btnRacer3" Grid.Row="3">Rabbit03</Button>
+        <Button x:Name="btnRacer4" Grid.Row="4">Rabbit04</Button>
+        <Button x:Name="btnRacer5" Grid.Row="5">Rabbit05</Button>
+
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" x:Name="btn1Pos"
+                   Grid.Row="1" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" x:Name="btn2Pos"
+                   Grid.Row="2" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"  x:Name="btn3Pos"
+                   Grid.Row="3" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" x:Name="btn4Pos" 
+                   Grid.Row="4" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" x:Name="btn5Pos"
+                   Grid.Row="5" Grid.Column="2"
+                   Foreground="White"
+                   FontSize="13"></TextBlock>
 
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="6*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="103*"></ColumnDefinition>
+                <ColumnDefinition Width="70*"></ColumnDefinition>
+                <ColumnDefinition Width="353*"/>
+                <ColumnDefinition Width="103*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Click="StartClick">START</Button>
-            <Button Grid.Column="2" Click="StopClick">STOP</Button>
+
+            <Button Click="StartClick" Margin="0,14,7,14">START/RESTART</Button>
+            <Button Grid.Column="3" Click="StopClick" Margin="0,14,0,14">PAUSE(2sec)</Button>
+
 
         </Grid>
 
-
+        <Line Grid.Column="1" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Green" ></Line>
+        <Line Grid.Column="2" Grid.RowSpan="7" StrokeThickness="7"  X1="0" Y1="0" X2="0" Y2="420" Stroke="Red" ></Line>
+        <Line Grid.Row="2" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="3" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="4" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
+        <Line Grid.Row="5" Grid.ColumnSpan="3" StrokeThickness="5"  
+              X1="0" Y1="0" X2="820" Y2="0" 
+              Stroke="White"
+              StrokeDashArray="1 2"></Line>
     </Grid>
 </Window>
