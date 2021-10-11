@@ -24,19 +24,16 @@ namespace Homework_L1
     public partial class MainWindow : Window
     {
 
-        //RacerModel racer = new RacerModel();
 
-  
         TranslateTransform transform1 = new TranslateTransform();
         TranslateTransform transform2 = new TranslateTransform();
         TranslateTransform transform3 = new TranslateTransform();
         TranslateTransform transform4 = new TranslateTransform();
         TranslateTransform transform5 = new TranslateTransform();
 
+
+
         Random rnd = new Random();
-
-
-        //RacerModel racer1;
 
     
         Thread t1;
@@ -54,22 +51,7 @@ namespace Homework_L1
         {
             InitializeComponent();
             DataContext = this;
-<<<<<<< HEAD
-            t1 = new Thread(UpdateCoordX);
-            t1.IsBackground = true;
-            t1.Name = "Racer1";
-            progress.Maximum = 250;
-        }
 
-        void StartClick(object sender, RoutedEventArgs e)
-        {
-
-            t1.Start();
-
-        }
-        void StopClick(object sender, RoutedEventArgs e)
-=======
-           
       
         }
 
@@ -113,30 +95,19 @@ namespace Homework_L1
                 tb.Text = Places.ToString() + " Place";
                 Places++;
 
-                //Thread.CurrentThread.Abort();
-     
             }
-            //btn.Content = transl.X.ToString();
-            //this.Title = transform1.X.ToString();
+
         }
 
 
         void Reset()
 >>>>>>> 1-2_test
         {
-            Places = 1;
-            btn1Pos.Text = "";
-            btn2Pos.Text = "";
-            btn3Pos.Text = "";
-            btn4Pos.Text = "";
-            btn5Pos.Text = "";
-        }
 
-        void StartClick(object sender, RoutedEventArgs e)
-        {
 
-            Reset();
-
+            ClearFields();
+            //t1.Start();
+            //this.Title = progress.Value.ToString();
 
             t1 = new Thread(() => MoveByX(btnRacer1, btn1Pos,transform1));
             t1.IsBackground = true;
@@ -160,52 +131,27 @@ namespace Homework_L1
             t4.Start();
             t5.Start();
 
+        void ClearFields()
+        {
+            Places = 1;
+            btn1Pos.Text = "";
+            btn2Pos.Text = "";
+            btn3Pos.Text = "";
+            btn4Pos.Text = "";
+            btn5Pos.Text = "";
         }
 
         void StopClick(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            //TranslateTransform transform = new TranslateTransform();
 
-           
-            
-
-                    this.Dispatcher.Invoke(new Action(() =>
-                    {
-           
-                        while (transform1.X <= 200)
-                         {
-        
-                                transform1.X += rnd.Next(5, 45);
-                            //transform1.X += deltaX;
-
-                            //btnRacer1.RenderTransform = transform1;
-                            btnRacer1.RenderTransform = new TranslateTransform(transform1.X, 0);
-                                this.Title = transform1.X.ToString();
-                            btnRacer1.Content = transform1.X.ToString();
-                            txtBlock.Text = transform1.X.ToString();
-                            progress.Value = transform1.X;
-                            Thread.Sleep(500);
-      
-                         }
-                         
-                    }));
-
-                    string name = Thread.CurrentThread.Name;
-            
-        
-=======
-
-            //not supported Abort(),Resume(),Suspend()....
-            
             t1.Interrupt();
             t2.Interrupt();
             t3.Interrupt();
             t4.Interrupt();
             t5.Interrupt();
 
->>>>>>> 1-2_test
         }
+
 
     }
 }
