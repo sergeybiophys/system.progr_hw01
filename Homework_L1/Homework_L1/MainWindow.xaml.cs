@@ -151,7 +151,5 @@ namespace Homework_L1
             t5.Interrupt();
 
         }
-
-
     }
 }
