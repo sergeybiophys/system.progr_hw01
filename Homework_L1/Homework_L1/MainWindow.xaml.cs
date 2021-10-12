@@ -42,8 +42,7 @@ namespace Homework_L1
         Thread t4;
         Thread t5;
 
-        public delegate void TestThis();
-        public TestThis delegateTestTest;
+
         public static int Places = 1;
         public MainWindow()
         {
